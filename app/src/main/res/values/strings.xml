@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Warrantree | Retailers</string>
+    <string name="openDrawer">Open Drawer</string>
+    <string name="closedDrawer">Closed Drawer</string>
+
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="reenter_password_hint">Re-enter Password</string>
+    <string name="full_name_hint">Full Name</string>
+    <string name="aadhar_no">Aadhar No</string>
+    <string name="phone_no">Phone No</string>
+    <string name="email">Email</string>
+    <string name="dob">Date of Birth</string>
+    <string name="pan_no">PAN Number</string>
+    <string name="six_digit_code">Enter six digit code</string>
+    <string name="button_sign_in">Sign In</string>
+    <string name="button_sign_up">Sign Up</string>
+
+    <string name="Rs">\u20B9</string>
+    <string name="LogintoSignup">Don\'t have an account yet? Don\'t worry. Sign up to use our services using the button below</string>
+    <string name="username">Enter UserName</string>
+    <string name="OTP">Enter OTP</string>
+    <string name="enter_mobile_number_here">Enter Mobile Number</string>
+    <string name="enable_editing">Tap on the pencil icon to edit your mobile number</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="user_authentication">User Authentication</string>
+    <string name="submit_details">Submit Details</string>
+    <string name="enter_email_id">Enter shop\'s Email ID</string>
+    <string name="enter_shop_address">Enter shop\'s Address</string>
+    <string name="enter_shop_name">Enter name of the Shop</string>
+
+</resources>

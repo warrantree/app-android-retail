@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <Button
+
+            android:id="@+id/btTagCustomer"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/margin_20"
+            android:background="@color/colorPrimary"
+            android:text="Tag A Customer"
+            android:textColor="@color/white"
+
+            />
+
+        <Button
+
+            android:id="@+id/btPastOrders"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/margin_20"
+            android:background="@color/colorPrimary"
+            android:text="Past Orders"
+            android:textColor="@color/white"
+
+            />
+
+
+        <Button
+
+            android:id="@+id/btTrends"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/margin_20"
+            android:background="@color/colorPrimary"
+            android:text="Trends &amp; Analysis"
+            android:textColor="@color/white"
+
+            />
+
+    </LinearLayout>
+
+</ScrollView>
