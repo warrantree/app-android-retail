@@ -10,7 +10,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 
 import com.android.test.warrantree_retailer.adapters.OrdersAdapter;
 
@@ -49,7 +48,7 @@ public class Home extends AppCompatActivity {
         view_trends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Home.this, Trends.class));
+                startActivity(new Intent(Home.this, CRMActivity.class));
             }
         });
 

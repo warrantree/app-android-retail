@@ -25,10 +25,10 @@
         <activity
             android:name=".PastOrdersActivity"
             android:parentActivityName=".Home" />
-        <activity android:name=".Trends" />
+        <activity android:name=".CRMActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".UserLogin" />
-        <activity android:name=".CRMActivity"></activity>
+        <activity android:name=".TrendsActivity"></activity>
     </application>
 
 </manifest>
