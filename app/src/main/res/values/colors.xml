@@ -25,4 +25,8 @@
     <color name="colorPrimaryBase">#3F51B5</color>
     <color name="colorPrimaryDarkBase">#303F9F</color>
     <color name="colorAccentBase">#FF4081</color>
+
+    <color name="red">#ef5953</color>
+    <color name="green">#53ef72</color>
+    <color name="blue">#53a6ef</color>
 </resources>
