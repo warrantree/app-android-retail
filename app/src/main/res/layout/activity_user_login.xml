@@ -1,286 +1,359 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/activity_vertical_margin"
     tools:context="com.android.test.warrantree_retailer.UserLogin">
 
-    <TextView
-        android:id="@+id/user_auth_pageHeader"
-        android:layout_width="match_parent"
+    <view
+        android:id="@+id/view5"
+        class="android.support.v4.widget.Space"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_20"
-        android:layout_marginTop="@dimen/margin_20"
-        android:gravity="center"
-        android:text="@string/user_authentication"
-        android:textColor="@color/colorPrimary"
-        android:textSize="36sp"
-        android:textStyle="bold" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/user_auth_MobNum_Lay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_10"
-        android:textColor="#673ab7"
-        android:visibility="visible"
-        app:errorEnabled="true">
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/gradientbox"
+        app:layout_constraintBottom_toTopOf="@+id/view5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-        <EditText
-            android:id="@+id/user_auth_MobNum"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_mobile_number_here"
-            android:inputType="phone"
-            android:textStyle="bold" />
-    </android.support.design.widget.TextInputLayout>
-
-    <Button
-        android:id="@+id/btSendOTP"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_80"
-        android:layout_marginLeft="@dimen/margin_80"
-        android:layout_marginRight="@dimen/margin_80"
-        android:layout_marginStart="@dimen/margin_80"
-        android:background="#FFF"
-        android:text="@string/send_otp"
-        android:textSize="20sp"
-        android:visibility="visible" />
-
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/user_auth_OTP_lay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:errorEnabled="true">
-
-        <EditText
-            android:id="@+id/user_auth_OTP"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:gravity="center"
-            android:hint="@string/enter_otp"
-            android:inputType="number"
-            android:maxLines="1"
-            android:textStyle="bold" />
-    </android.support.design.widget.TextInputLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_20"
-        android:layout_marginLeft="@dimen/margin_20"
-        android:layout_marginRight="@dimen/margin_20"
-        android:layout_marginStart="@dimen/margin_20"
-        android:layout_marginTop="@dimen/margin_20"
-        android:orientation="horizontal"
-        android:visibility="invisible">
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/margin_20"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="0dp"
+        android:background="#f5ffffff"
+        android:elevation="4dip"
+        android:orientation="vertical"
+        android:padding="12dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.7">
+
+        <TextView
+            android:id="@+id/user_auth_pageHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_20"
+            android:layout_marginTop="@dimen/margin_20"
+            android:gravity="center"
+            android:text="@string/user_authentication"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/user_auth_MobNum_Lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_10"
+            android:textColor="#673ab7"
+            android:visibility="visible"
+            app:errorEnabled="true">
+
+            <EditText
+                android:id="@+id/user_auth_MobNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_mobile_number_here"
+                android:inputType="phone"
+                android:textStyle="bold" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btSendOTP"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_80"
+            android:layout_marginLeft="@dimen/margin_80"
+            android:layout_marginRight="@dimen/margin_80"
+            android:layout_marginStart="@dimen/margin_80"
+            android:background="#FFF"
+            android:text="@string/send_otp"
+            android:textSize="20sp"
+            android:visibility="visible" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/user_auth_OTP_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:errorEnabled="true">
+
+            <EditText
+                android:id="@+id/user_auth_OTP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:gravity="center"
+                android:hint="@string/enter_otp"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textStyle="bold" />
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/btSubmitOTP"
             style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.8"
+            android:layout_marginEnd="@dimen/margin_20"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_marginRight="@dimen/margin_20"
+            android:layout_marginStart="@dimen/margin_20"
+            android:layout_marginTop="@dimen/margin_20"
             android:background="#00acc1"
             android:text="@string/logon"
             android:textSize="20sp"
-            android:visibility="invisible" />
+            android:visibility="gone" />
 
-        <ImageButton
-            android:id="@+id/btEnableEditing"
-            style="@style/Widget.AppCompat.ImageButton"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.2"
-            android:backgroundTint="#FFF"
-            android:foregroundTint="@color/colorAccent"
-            android:visibility="invisible"
-            app:srcCompat="@android:drawable/ic_menu_edit" />
+        <TextView
+            android:id="@+id/tv_edit_hint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
+            android:layout_marginTop="10dp"
+            android:onClick="resendOTP"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/nootp1"
+            android:visibility="gone" />
+
+        <!--        <ImageButton
+                    android:id="@+id/btEnableEditing"
+                    style="@style/Widget.AppCompat.ImageButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:backgroundTint="#FFF"
+                    android:foregroundTint="@color/colorAccent"
+                    android:visibility="gone"
+                    app:srcCompat="@android:drawable/ic_menu_edit" />-->
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/user_auth_ShopName_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:errorEnabled="true">
+
+            <EditText
+                android:id="@+id/user_auth_ShopName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:hint="@string/enter_shop_name"
+                android:inputType="textPersonName"
+                android:textStyle="bold" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/user_auth_Email_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:errorEnabled="true">
+
+            <EditText
+                android:id="@+id/user_auth_Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:hint="@string/enter_email_id"
+                android:inputType="textWebEmailAddress|textEmailAddress"
+                android:textStyle="bold" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/user_auth_EmployeeName_Lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:errorEnabled="true">
+
+            <EditText
+                android:id="@+id/user_auth_EmployeeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:hint="@string/enter_your_name"
+                android:inputType="textCapWords"
+                android:textStyle="bold" />
+        </android.support.design.widget.TextInputLayout>
+
+        <RadioGroup
+            android:id="@+id/radiogroupfor_shopauthid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/rb_vat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="VAT"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rb_gst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="GST"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rb_tin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="TIN"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/user_auth_vat_gst_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:errorEnabled="true">
+
+            <EditText
+                android:id="@+id/user_auth_vat_gst"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:hint="@string/enter_vat_gst_tan"
+                android:inputType="textVisiblePassword"
+                android:textStyle="bold" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btSubmitUsrDet"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_80"
+            android:layout_marginLeft="@dimen/margin_80"
+            android:layout_marginRight="@dimen/margin_80"
+            android:layout_marginStart="@dimen/margin_80"
+            android:layout_marginTop="@dimen/margin_20"
+            android:background="#00acc1"
+            android:text="@string/submit_details"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/user_auth_Address_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:visibility="gone"
+            app:errorEnabled="true">
+
+            <EditText
+                android:id="@+id/user_auth_Address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_shop_address"
+                android:inputType="textPostalAddress|textMultiLine"
+                android:textStyle="bold" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/user_auth_Address_city_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:visibility="gone"
+            app:errorEnabled="true">
+
+            <EditText
+                android:id="@+id/user_auth_Address_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_city"
+                android:inputType="textPostalAddress"
+                android:textStyle="bold" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/user_auth_Address_state_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:visibility="gone"
+            app:errorEnabled="true">
+
+            <EditText
+                android:id="@+id/user_auth_Address_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_state"
+                android:inputType="textPostalAddress"
+                android:textStyle="bold" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/user_auth_Address_ZIP_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:visibility="gone"
+            app:errorEnabled="true">
+
+            <EditText
+                android:id="@+id/user_auth_Address_ZIP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_pin_code"
+                android:inputType="number"
+                android:textStyle="bold" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btSubmitShopAddress"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_80"
+            android:layout_marginLeft="@dimen/margin_80"
+            android:layout_marginRight="@dimen/margin_80"
+            android:layout_marginStart="@dimen/margin_80"
+            android:layout_marginTop="@dimen/margin_20"
+            android:background="#00acc1"
+            android:text="@string/submit_address"
+            android:textSize="20sp"
+            android:visibility="gone" />
     </LinearLayout>
-
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/user_auth_ShopName_lay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:errorEnabled="true">
-
-        <EditText
-            android:id="@+id/user_auth_ShopName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:hint="@string/enter_shop_name"
-            android:inputType="textPersonName"
-            android:textStyle="bold" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/user_auth_Email_lay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:errorEnabled="true">
-
-        <EditText
-            android:id="@+id/user_auth_Email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:hint="@string/enter_email_id"
-            android:inputType="textWebEmailAddress|textEmailAddress"
-            android:textStyle="bold" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/user_auth_EmployeeName_Lay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:errorEnabled="true">
-
-        <EditText
-            android:id="@+id/user_auth_EmployeeName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:hint="@string/enter_your_name"
-            android:inputType="textWebEmailAddress|textEmailAddress"
-            android:textStyle="bold" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/user_auth_vat-gst_lay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:errorEnabled="true">
-
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/user_auth_vat-gst"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:hint="@string/enter_your_name"
-            android:inputType="textVisiblePassword"
-            android:textStyle="bold" />
-    </android.support.design.widget.TextInputLayout>
-
-    <Button
-        android:id="@+id/btSubmitUsrDet"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_80"
-        android:layout_marginLeft="@dimen/margin_80"
-        android:layout_marginRight="@dimen/margin_80"
-        android:layout_marginStart="@dimen/margin_80"
-        android:layout_marginTop="@dimen/margin_20"
-        android:background="#00acc1"
-        android:text="@string/submit_details"
-        android:textSize="20sp"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/tv_edit_hint"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom|center"
-        android:text="@string/enable_editing"
-        android:visibility="gone" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/user_auth_Address_lay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:animateLayoutChanges="true"
-        android:hint="@string/enter_shop_address"
-        android:orientation="vertical"
-        android:visibility="gone"
-        app:errorEnabled="true">
-
-        <EditText
-            android:id="@+id/user_auth_Address_L1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:hint="@string/address_line_1"
-            android:inputType="textPostalAddress|textMultiLine"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/user_auth_Address_L2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:hint="@string/address_line_2_optional"
-            android:inputType="textPostalAddress"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/user_auth_Address_city"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:hint="@string/enter_city"
-            android:inputType="textPostalAddress"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/user_auth_Address_state"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:hint="@string/enter_state"
-            android:inputType="textPostalAddress"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/user_auth_Address_PIN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:hint="@string/enter_pin_code"
-            android:inputType="number"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/user_auth_Address_country"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:hint="@string/enter_country"
-            android:inputType="textPostalAddress"
-            android:textStyle="bold" />
-    </android.support.design.widget.TextInputLayout>
-
-    <Button
-        android:id="@+id/btSubmitShopAddress"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_80"
-        android:layout_marginLeft="@dimen/margin_80"
-        android:layout_marginRight="@dimen/margin_80"
-        android:layout_marginStart="@dimen/margin_80"
-        android:layout_marginTop="@dimen/margin_20"
-        android:background="#00acc1"
-        android:text="@string/submit_address"
-        android:textSize="20sp"
-        android:visibility="gone" />
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

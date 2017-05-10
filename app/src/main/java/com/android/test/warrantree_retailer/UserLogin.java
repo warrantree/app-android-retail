@@ -10,6 +10,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,18 +20,19 @@ import java.util.regex.Pattern;
 
 public class UserLogin extends AppCompatActivity {
 
-
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     private Matcher matcher;
 
+    int resendOTP_count = 0;
+
     Button bt_sendOTP, bt_submitOTP, bt_submitDetails, bt_submitAddress;
-    EditText et_NumMob, et_OTP, et_ShopName, et_ShopEmail, et_ShopAddress_L1, et_ShopAddress_L2, et_ShopAddress_City, et_ShopAddress_State, et_ShopAddress_PINCode, et_ShopAddress_Country;
+    EditText et_NumMob, et_OTP, et_ShopName, et_ShopEmail, et_ShopAddress, et_ShopAddress_City, et_ShopAddress_State, et_ShopAddress_ZIPCode, et_ShopEmployeeName, et_TIN_VAT_GST;
     TextView tv_header, tv_edithint;
-    TextInputLayout et_NumMoblay, et_OTPlay, et_ShopNamelay, et_ShopEmaillay, et_EmployeeNamelay, et_ShopVATGSTlay, et_ShopAddresslay;
+    TextInputLayout et_NumMoblay, et_OTPlay, et_ShopNamelay, et_ShopEmaillay, et_ShopEmployeeNamelay, et_ShopVATGSTlay, et_ShopAddresslay, et_ShopAddressCitylay, et_ShopAddressStatelay, et_ShopAddressZIPlay;
     ImageButton ib_enableedit;
 
-    String usr_MobNum, usr_OTP, usr_shopName, usr_shopEmail, usr_UserNAme, usr_shopAddress;
+    RadioGroup radiogroup_for_shop_auth_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,21 +44,26 @@ public class UserLogin extends AppCompatActivity {
         et_OTP = (EditText) findViewById(R.id.user_auth_OTP);
         et_ShopName = (EditText) findViewById(R.id.user_auth_ShopName);
         et_ShopEmail = (EditText) findViewById(R.id.user_auth_Email);
-        et_ShopAddress_L1 = (EditText) findViewById(R.id.user_auth_Address_L1);
-        et_ShopAddress_L2 = (EditText) findViewById(R.id.user_auth_Address_L2);
+        et_ShopEmployeeName = (EditText) findViewById(R.id.user_auth_EmployeeName);
+        et_TIN_VAT_GST = (EditText) findViewById(R.id.user_auth_vat_gst);
+
+        et_ShopAddress = (EditText) findViewById(R.id.user_auth_Address);
         et_ShopAddress_City = (EditText) findViewById(R.id.user_auth_Address_city);
         et_ShopAddress_State = (EditText) findViewById(R.id.user_auth_Address_state);
-        et_ShopAddress_PINCode = (EditText) findViewById(R.id.user_auth_Address_PIN);
-        et_ShopAddress_Country = (EditText) findViewById(R.id.user_auth_Address_country);
+        et_ShopAddress_ZIPCode = (EditText) findViewById(R.id.user_auth_Address_ZIP);
 
         //Referencing TextInputLayouts - in order of display
         et_NumMoblay = (TextInputLayout) findViewById(R.id.user_auth_MobNum_Lay);
         et_OTPlay = (TextInputLayout) findViewById(R.id.user_auth_OTP_lay);
         et_ShopNamelay = (TextInputLayout) findViewById(R.id.user_auth_ShopName_lay);
         et_ShopEmaillay = (TextInputLayout) findViewById(R.id.user_auth_Email_lay);
-        et_EmployeeNamelay = (TextInputLayout) findViewById(R.id.user_auth_EmployeeName_Lay);
+        et_ShopEmployeeNamelay = (TextInputLayout) findViewById(R.id.user_auth_EmployeeName_Lay);
         et_ShopVATGSTlay = (TextInputLayout) findViewById(R.id.user_auth_vat_gst_lay);
+
         et_ShopAddresslay = (TextInputLayout) findViewById(R.id.user_auth_Address_lay);
+        et_ShopAddressCitylay = (TextInputLayout) findViewById(R.id.user_auth_Address_city_lay);
+        et_ShopAddressStatelay = (TextInputLayout) findViewById(R.id.user_auth_Address_state_lay);
+        et_ShopAddressZIPlay = (TextInputLayout) findViewById(R.id.user_auth_Address_ZIP_lay);
 
         //Referencing the Buttons - in order of execution
         bt_sendOTP = (Button) findViewById(R.id.btSendOTP);
@@ -67,8 +75,11 @@ public class UserLogin extends AppCompatActivity {
         tv_header = (TextView) findViewById(R.id.user_auth_pageHeader);
         tv_edithint = (TextView) findViewById(R.id.tv_edit_hint);
 
-        //Referencing the ImageButton
-        ib_enableedit = (ImageButton) findViewById(R.id.btEnableEditing);
+/*        //Referencing the ImageButton
+        ib_enableedit = (ImageButton) findViewById(R.id.btEnableEditing);*/
+
+        //Referencing RadioButtons
+        radiogroup_for_shop_auth_id = (RadioGroup) findViewById(R.id.radiogroupfor_shopauthid);
 
 
         //Handling Clicks
@@ -83,12 +94,7 @@ public class UserLogin extends AppCompatActivity {
                     sendOTP();
                 }
                 // TODO: API calls for checking if number exists in DB goes here
-                et_OTPlay.setVisibility(View.VISIBLE);
-                ib_enableedit.setVisibility(View.VISIBLE);
-                bt_submitOTP.setVisibility(View.VISIBLE);
-                bt_sendOTP.setVisibility(View.GONE);
-                disableEditText(et_NumMob);
-                tv_edithint.setVisibility(View.VISIBLE);
+                onSendOTP();
             }
         });
         bt_submitOTP.setOnClickListener(new View.OnClickListener() {
@@ -104,47 +110,32 @@ public class UserLogin extends AppCompatActivity {
                 // TODO: API calls for submitting OTP goes here
 
                 // TODO: Make elements invisible once OTP based auth is done.
-                et_ShopNamelay.setVisibility(View.VISIBLE);
-                et_ShopEmaillay.setVisibility(View.VISIBLE);
-                et_ShopAddresslay.setVisibility(View.VISIBLE);
-                et_ShopVATGSTlay.setVisibility(View.VISIBLE);
-                bt_submitDetails.setVisibility(View.VISIBLE);
-                et_OTPlay.setVisibility(View.GONE);
-                tv_edithint.setVisibility(View.GONE);
-                ib_enableedit.setVisibility(View.GONE);
-                bt_submitOTP.setVisibility(View.GONE);
-                tv_header.setText("Business/Shop Details");
+                onSubmitOTP();
             }
         });
 
         bt_submitDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                usr_shopName = et_ShopName.getText().toString();
-                usr_shopEmail = et_ShopEmail.getText().toString();
+                //usr_shopName = et_ShopName.getText().toString();
+                //usr_shopEmail = et_ShopEmail.getText().toString();
+                onSubmitDetails();
             }
         });
 
         bt_submitAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                usr_shopAddress = et_ShopAddress_L1.getText().toString();
-
-                startActivity(new Intent(UserLogin.this, Home.class));
+                onSubmitAddress();
             }
         });
 
-        ib_enableedit.setOnClickListener(new View.OnClickListener() {
+        /*ib_enableedit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                enableEditText(et_NumMob);
-                bt_sendOTP.setVisibility(View.VISIBLE);
-                bt_submitOTP.setVisibility(View.GONE);
-                ib_enableedit.setVisibility(View.GONE);
-                et_OTPlay.setVisibility(View.GONE);
+                on
             }
-        });
+        });*/
     }
 
     //To Disable an EditTextView
@@ -175,11 +166,11 @@ public class UserLogin extends AppCompatActivity {
     }
 
     public boolean validateMobNum(String mobnum) {
-        return mobnum.length() > 10 || mobnum.length() < 10;
+        return mobnum.length() == 10;
     }
 
     public boolean validateOTP(String currentotp) {
-        return currentotp.length() > 4 || currentotp.length() < 4;
+        return currentotp.length() == 4;
     }
 
     public void sendOTP() {
@@ -190,5 +181,113 @@ public class UserLogin extends AppCompatActivity {
     public void completeLogin() {
         Toast.makeText(getApplicationContext(), "Woohoo! Authentication was successful!.", Toast.LENGTH_SHORT).show();
         // TODO: login procedure;
+    }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch (view.getId()) {
+            case R.id.rb_gst:
+                if (checked)
+                    et_ShopVATGSTlay.getEditText().setHint("GST");
+                // Pirates are the best
+                break;
+            case R.id.rb_vat:
+                if (checked)
+                    et_ShopVATGSTlay.getEditText().setHint("VAT");
+                // Ninjas rule
+                break;
+            case R.id.rb_tin:
+                if (checked)
+                    et_ShopVATGSTlay.getEditText().setHint("TIN");
+                // Ninjas rule
+                break;
+        }
+    }
+
+    public void onSendOTP() {
+
+        //Show Next Section
+        et_OTPlay.setVisibility(View.VISIBLE);
+        bt_submitOTP.setVisibility(View.VISIBLE);
+        //ib_enableedit.setVisibility(View.VISIBLE);
+        disableEditText(et_NumMob);
+        tv_edithint.setVisibility(View.VISIBLE);
+        tv_edithint.setText(R.string.nootp1);
+
+        //Hide Previous Section
+        bt_sendOTP.setVisibility(View.GONE);
+
+
+    }
+
+    public void onSubmitOTP() {
+
+        //Show Next Section
+        et_ShopNamelay.setVisibility(View.VISIBLE);
+        et_ShopEmaillay.setVisibility(View.VISIBLE);
+        et_ShopEmployeeNamelay.setVisibility(View.VISIBLE);
+        et_ShopVATGSTlay.setVisibility(View.VISIBLE);
+        radiogroup_for_shop_auth_id.setVisibility(View.VISIBLE);
+        bt_submitDetails.setVisibility(View.VISIBLE);
+
+        //Hide Previous Section
+        et_OTPlay.setVisibility(View.GONE);
+        tv_edithint.setVisibility(View.GONE);
+        //ib_enableedit.setVisibility(View.GONE);
+        bt_submitOTP.setVisibility(View.GONE);
+        tv_header.setText("Business/Shop Details");
+    }
+
+    public void onSubmitDetails() {
+        //Show Next Section
+        et_ShopAddresslay.setVisibility(View.VISIBLE);
+        et_ShopAddressCitylay.setVisibility(View.VISIBLE);
+        et_ShopAddressStatelay.setVisibility(View.VISIBLE);
+        et_ShopAddressZIPlay.setVisibility(View.VISIBLE);
+        bt_submitAddress.setVisibility(View.VISIBLE);
+
+        //Hide Previous Section
+        et_ShopNamelay.setVisibility(View.GONE);
+        et_ShopEmaillay.setVisibility(View.GONE);
+        et_ShopName.setVisibility(View.GONE);
+        et_ShopVATGSTlay.setVisibility(View.GONE);
+        et_ShopEmployeeNamelay.setVisibility(View.GONE);
+        radiogroup_for_shop_auth_id.setVisibility(View.GONE);
+        bt_submitDetails.setVisibility(View.GONE);
+    }
+
+    public void onSubmitAddress() {
+
+        //Hide Current Section
+        et_ShopAddresslay.setVisibility(View.GONE);
+        et_ShopAddressCitylay.setVisibility(View.GONE);
+        et_ShopAddressStatelay.setVisibility(View.GONE);
+        et_ShopAddressZIPlay.setVisibility(View.GONE);
+        bt_submitAddress.setVisibility(View.GONE);
+
+        //Start New Activity
+        startActivity(new Intent(UserLogin.this, Home.class));
+    }
+
+    public void resendOTP(View view) {
+        if (resendOTP_count >= 2) {
+            enableEditText(et_NumMob);
+
+            //Show Previous Section
+            bt_sendOTP.setVisibility(View.VISIBLE);
+
+            //Hide Current Section
+            bt_submitOTP.setVisibility(View.GONE);
+            //ib_enableedit.setVisibility(View.GONE);
+            et_OTPlay.setVisibility(View.GONE);
+            Toast.makeText(getApplicationContext(), "Attention! Max OTP Count Reached!", Toast.LENGTH_SHORT).show();
+            tv_edithint.setText(R.string.nootp2);
+        } else {
+            resendOTP_count++;
+        }
+        Toast.makeText(getApplicationContext(), "OTP Re-Sent! Check your messages for the 4-digit OTP!.", Toast.LENGTH_SHORT).show();
     }
 }

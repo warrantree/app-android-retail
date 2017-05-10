@@ -38,5 +38,17 @@
     <string name="enter_pin_code">Enter PIN Code</string>
     <string name="enter_country">Enter Country</string>
     <string name="submit_address">Submit Address</string>
+    <string name="enter_vat_gst_tan">Enter VAT/GST/TAN</string>
+
+    <!--TODO: For Spinner-->
+    <string name="spinner_title">Choose ID Type</string>
+    <string name="spinner_prompt">GST</string>
+    <string name="nootp1">Didn\'t receive the OPT? Click here to resend</string>
+    <string name="nootp2">Edit your number before re-sending OTP</string>
+    <string-array name="shop_auth_code">
+        <item>PAN</item>
+        <item>GST</item>
+        <item>TAN</item>
+    </string-array>
 
 </resources>
