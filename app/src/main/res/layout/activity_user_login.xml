@@ -25,8 +25,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_10"
-        android:orientation="horizontal"
-        android:textColor="#673ab7">
+        android:textColor="#673ab7"
+        android:visibility="visible"
+        app:errorEnabled="true">
 
         <EditText
             android:id="@+id/user_auth_MobNum"
@@ -48,15 +49,16 @@
         android:layout_marginStart="@dimen/margin_80"
         android:background="#FFF"
         android:text="@string/send_otp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:visibility="visible" />
 
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/user_auth_OTP_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        app:errorEnabled="true">
 
         <EditText
             android:id="@+id/user_auth_OTP"
@@ -78,7 +80,8 @@
         android:layout_marginRight="@dimen/margin_20"
         android:layout_marginStart="@dimen/margin_20"
         android:layout_marginTop="@dimen/margin_20"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="invisible">
 
         <Button
             android:id="@+id/btSubmitOTP"
@@ -100,7 +103,7 @@
             android:layout_weight="0.2"
             android:backgroundTint="#FFF"
             android:foregroundTint="@color/colorAccent"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:srcCompat="@android:drawable/ic_menu_edit" />
     </LinearLayout>
 
@@ -109,8 +112,8 @@
         android:id="@+id/user_auth_ShopName_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="invisible">
+        android:visibility="gone"
+        app:errorEnabled="true">
 
         <EditText
             android:id="@+id/user_auth_ShopName"
@@ -126,8 +129,8 @@
         android:id="@+id/user_auth_Email_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="invisible">
+        android:visibility="gone"
+        app:errorEnabled="true">
 
         <EditText
             android:id="@+id/user_auth_Email"
@@ -143,8 +146,8 @@
         android:id="@+id/user_auth_EmployeeName_Lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="invisible">
+        android:visibility="gone"
+        app:errorEnabled="true">
 
         <EditText
             android:id="@+id/user_auth_EmployeeName"
@@ -153,6 +156,28 @@
             android:layout_marginTop="@dimen/margin_10"
             android:hint="@string/enter_your_name"
             android:inputType="textWebEmailAddress|textEmailAddress"
+            android:textStyle="bold" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/user_auth_vat-gst_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:errorEnabled="true">
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/user_auth_vat-gst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
+            android:hint="@string/enter_your_name"
+            android:inputType="textVisiblePassword"
             android:textStyle="bold" />
     </android.support.design.widget.TextInputLayout>
 
@@ -177,16 +202,17 @@
         android:layout_height="match_parent"
         android:layout_gravity="bottom|center"
         android:text="@string/enable_editing"
-        android:visibility="invisible" />
+        android:visibility="gone" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/user_auth_Address_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
         android:hint="@string/enter_shop_address"
         android:orientation="vertical"
-        android:animateLayoutChanges="true"
-        android:visibility="invisible">
+        android:visibility="gone"
+        app:errorEnabled="true">
 
         <EditText
             android:id="@+id/user_auth_Address_L1"
