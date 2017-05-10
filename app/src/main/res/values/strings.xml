@@ -29,5 +29,14 @@
     <string name="enter_email_id">Enter shop\'s Email ID</string>
     <string name="enter_shop_address">Enter shop\'s Address</string>
     <string name="enter_shop_name">Enter name of the Shop</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="logon">Logon</string>
+    <string name="address_line_1">Address Line 1</string>
+    <string name="address_line_2_optional">Address Line 2 (Optional)</string>
+    <string name="enter_city">Enter City</string>
+    <string name="enter_state">Enter State</string>
+    <string name="enter_pin_code">Enter PIN Code</string>
+    <string name="enter_country">Enter Country</string>
+    <string name="submit_address">Submit Address</string>
 
 </resources>

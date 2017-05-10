@@ -12,13 +12,13 @@ import android.widget.TextView;
 
 public class UserLogin extends AppCompatActivity {
 
-    Button bt_sendOTP, bt_submitOTP, bt_submitDetails;
-    EditText et_NumMob, et_OTP, et_ShopName, et_ShopEmail, et_ShopAddress;
+    Button bt_sendOTP, bt_submitOTP, bt_submitDetails, bt_submitAddress;
+    EditText et_NumMob, et_OTP, et_ShopName, et_ShopEmail, et_ShopAddress_L1, et_ShopAddress_L2, et_ShopAddress_City, et_ShopAddress_State, et_ShopAddress_PINCode, et_ShopAddress_Country;
     TextView tv_header, tv_edithint;
-    TextInputLayout et_NumMoblay, et_OTPlay, et_ShopNamelay, et_ShopEmaillay, et_ShopAddresslay;
+    TextInputLayout et_NumMoblay, et_OTPlay, et_ShopNamelay, et_ShopEmaillay, et_EmployeeNamelay, et_ShopAddresslay;
     ImageButton ib_enableedit;
 
-    String usr_MobNum, usr_OTP, usr_shopName, usr_shopEmail, getUsr_shopAddress;
+    String usr_MobNum, usr_OTP, usr_shopName, usr_shopEmail, usr_UserNAme, usr_shopAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +30,26 @@ public class UserLogin extends AppCompatActivity {
         et_OTP = (EditText) findViewById(R.id.user_auth_OTP);
         et_ShopName = (EditText) findViewById(R.id.user_auth_ShopName);
         et_ShopEmail = (EditText) findViewById(R.id.user_auth_Email);
-        et_ShopAddress = (EditText) findViewById(R.id.user_auth_Address);
+        et_ShopAddress_L1 = (EditText) findViewById(R.id.user_auth_Address_L1);
+        et_ShopAddress_L2 = (EditText) findViewById(R.id.user_auth_Address_L2);
+        et_ShopAddress_City = (EditText) findViewById(R.id.user_auth_Address_city);
+        et_ShopAddress_State = (EditText) findViewById(R.id.user_auth_Address_state);
+        et_ShopAddress_PINCode = (EditText) findViewById(R.id.user_auth_Address_PIN);
+        et_ShopAddress_Country = (EditText) findViewById(R.id.user_auth_Address_country);
 
         //Referencing TextInputLayouts - in order of display
         et_NumMoblay = (TextInputLayout) findViewById(R.id.user_auth_MobNum_Lay);
         et_OTPlay = (TextInputLayout) findViewById(R.id.user_auth_OTP_lay);
         et_ShopNamelay = (TextInputLayout) findViewById(R.id.user_auth_ShopName_lay);
         et_ShopEmaillay = (TextInputLayout) findViewById(R.id.user_auth_Email_lay);
+        et_EmployeeNamelay = (TextInputLayout) findViewById(R.id.user_auth_EmployeeName_Lay);
         et_ShopAddresslay = (TextInputLayout) findViewById(R.id.user_auth_Address_lay);
 
         //Referencing the Buttons - in order of execution
         bt_sendOTP = (Button) findViewById(R.id.btSendOTP);
         bt_submitOTP = (Button) findViewById(R.id.btSubmitOTP);
         bt_submitDetails = (Button) findViewById(R.id.btSubmitUsrDet);
+        bt_submitAddress = (Button) findViewById(R.id.btSubmitShopAddress);
 
         //Referencing TextViews
         tv_header = (TextView) findViewById(R.id.user_auth_pageHeader);
@@ -88,9 +95,16 @@ public class UserLogin extends AppCompatActivity {
         bt_submitDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                usr_shopName = et_ShopAddress.getText().toString();
+                usr_shopName = et_ShopName.getText().toString();
                 usr_shopEmail = et_ShopEmail.getText().toString();
-                getUsr_shopAddress = et_ShopAddress.getText().toString();
+            }
+        });
+
+        bt_submitAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                usr_shopAddress = et_ShopAddress_L1.getText().toString();
 
                 startActivity(new Intent(UserLogin.this, Home.class));
             }
