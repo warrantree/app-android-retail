@@ -26,7 +26,7 @@
             android:name=".PastOrdersActivity"
             android:parentActivityName=".Home" />
         <activity android:name=".Trends" />
-        <activity android:name=".UserProfile" />
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".UserLogin"></activity>
     </application>
 
