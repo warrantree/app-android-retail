@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.android.test.warrantree_retailer.CRMActivity">
 
 
@@ -14,6 +15,91 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"></RelativeLayout>
+        android:layout_height="200dp">
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="55dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="37dp"
+            android:clickable="true"
+            app:backgroundTint="@color/colorPrimary"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="48dp"
+            android:layout_marginStart="48dp"
+            android:layout_toEndOf="@+id/floatingActionButton"
+            android:layout_toRightOf="@+id/floatingActionButton"
+            android:clickable="true"
+            app:backgroundTint="@color/colorPrimary"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/floatingActionButton"
+            android:layout_marginLeft="47dp"
+            android:layout_marginStart="47dp"
+            android:layout_toEndOf="@+id/floatingActionButton2"
+            android:layout_toRightOf="@+id/floatingActionButton2"
+            android:clickable="true"
+            app:backgroundTint="@color/colorPrimary"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/floatingActionButton2"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@+id/floatingActionButton3"
+            android:layout_toRightOf="@+id/floatingActionButton3"
+            android:clickable="true"
+            app:backgroundTint="@color/colorPrimary"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/floatingActionButton2"
+            android:layout_toLeftOf="@+id/floatingActionButton2"
+            android:layout_toStartOf="@+id/floatingActionButton2"
+            android:clickable="true"
+            app:backgroundTint="@color/colorPrimary"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/floatingActionButton2"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_toEndOf="@+id/floatingActionButton2"
+            android:layout_toRightOf="@+id/floatingActionButton2"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:backgroundTint="@color/colorPrimary" />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvCRM"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
