@@ -204,6 +204,11 @@ public class UserLogin extends AppCompatActivity {
                     et_ShopVATGSTlay.getEditText().setHint("TIN");
                 // Ninjas rule
                 break;
+            case R.id.rb_pan:
+                if (checked)
+                    et_ShopVATGSTlay.getEditText().setHint("PAN");
+                // Ninjas rule
+                break;
         }
     }
 
@@ -268,6 +273,10 @@ public class UserLogin extends AppCompatActivity {
         et_ShopAddressZIPlay.setVisibility(View.GONE);
         bt_submitAddress.setVisibility(View.GONE);
 
+        //Show the Next Section
+        //TODO: Add Succesful Completion Screen
+
+
         //Start New Activity
         startActivity(new Intent(UserLogin.this, Home.class));
     }
@@ -289,5 +298,9 @@ public class UserLogin extends AppCompatActivity {
             resendOTP_count++;
         }
         Toast.makeText(getApplicationContext(), "OTP Re-Sent! Check your messages for the 4-digit OTP!.", Toast.LENGTH_SHORT).show();
+    }
+
+    public void toHome(View view) {
+        startActivity(new Intent(UserLogin.this, Home.class));
     }
 }

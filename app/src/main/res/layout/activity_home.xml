@@ -1,118 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.android.test.warrantree_retailer.Home"
+    tools:showIn="@layout/activity_home">
 
-    <TextView
-        android:id="@+id/sales_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/sales_string"
-        android:layout_centerHorizontal="true"
-        android:elevation="8dp"
-        android:text="221"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="#66bb6a"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintLeft_toLeftOf="@+id/button"
-        app:layout_constraintRight_toRightOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button"
-        app:layout_constraintVertical_bias="0.6" />
-
-    <TextView
-        android:id="@+id/sales_string"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:elevation="8dp"
-        android:text="$ales"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#2e7d32"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/sales_count"
-        app:layout_constraintLeft_toLeftOf="@+id/button"
-        app:layout_constraintRight_toRightOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button"
-        app:layout_constraintVertical_bias="0.97" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="85dp"
-        android:background="@drawable/circularbutton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/tag_a_customer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button"
-        android:layout_alignTop="@+id/button"
-        android:tint="#FFF"
-        app:backgroundTint="#FF82B1FF"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.298"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@+id/button"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.215"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
-    <!--<Button
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="@drawable/circularbutton"
-        android:padding="20dp"
-        android:foreground="@drawable/ic_trending_up_black_24px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.716"
-        app:layout_constraintLeft_toLeftOf="@+id/button"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button"
-        app:layout_constraintVertical_bias="0.3" />-->
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/view_trends"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button"
-        android:layout_alignEnd="@+id/button"
-        android:layout_alignRight="@+id/button"
-        android:tint="#FFF"
-        app:backgroundTint="#66bb6a"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.737"
-        app:layout_constraintLeft_toLeftOf="@+id/button"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button"
-        app:layout_constraintVertical_bias="0.318"
-        app:srcCompat="@drawable/ic_trending_up_black_24dp" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvPastOrders"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/button"
-        android:layout_marginTop="@dimen/activity_horizontal_margin" />
+        android:layout_height="match_parent">
 
-</RelativeLayout>
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/my_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/my_home_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/bluegradientbox0"
+                android:fitsSystemWindows="true"
+                android:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:id="@+id/homeTopofLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/my_app_bar"
+            android:background="#757575"
+            android:elevation="4dp"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/sales_button"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/circularbutton" />
+
+            <TextView
+                android:id="@+id/sales_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sales_string"
+                android:layout_centerHorizontal="true"
+                android:elevation="4dp"
+                android:text="@string/number_of_todays_sales"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#66bb6a"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sales_string"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/sales_button"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="60dp"
+                android:elevation="4dp"
+                android:text="@string/ales"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#2e7d32"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/tag_a_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/sales_button"
+                android:layout_alignStart="@+id/sales_button"
+                android:layout_alignTop="@+id/sales_button"
+                android:tint="#FFF"
+                app:backgroundTint="#FF82B1FF"
+                app:fabSize="normal"
+                app:srcCompat="@android:drawable/ic_input_add" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/view_trends"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sales_button"
+                android:layout_alignEnd="@+id/sales_button"
+                android:layout_alignRight="@+id/sales_button"
+                android:tint="#FFF"
+                app:backgroundTint="#66bb6a"
+                app:fabSize="normal"
+                app:srcCompat="@drawable/ic_trending_up_black_24dp" />
+        </RelativeLayout>
+        <!--<TextView
+            android:id="@+id/sales_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sales_string"
+            android:layout_centerHorizontal="true"
+            android:elevation="8dp"
+            android:text="221"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#66bb6a"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/button"
+            app:layout_constraintLeft_toLeftOf="@+id/button"
+            app:layout_constraintRight_toRightOf="@+id/button"
+            app:layout_constraintTop_toTopOf="@+id/button"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <TextView
+            android:id="@+id/sales_string"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:elevation="8dp"
+            android:text="$ales"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#2e7d32"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/sales_count"
+            app:layout_constraintLeft_toLeftOf="@+id/button"
+            app:layout_constraintRight_toRightOf="@+id/button"
+            app:layout_constraintTop_toTopOf="@+id/button"
+            app:layout_constraintVertical_bias="0.97" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="85dp"
+            android:background="@drawable/circularbutton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.16" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/tag_a_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/button"
+            android:layout_alignStart="@+id/button"
+            android:layout_alignTop="@+id/button"
+            android:tint="#FFF"
+            app:backgroundTint="#FF82B1FF"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/button"
+            app:layout_constraintHorizontal_bias="0.298"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@+id/button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.215"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        &lt;!&ndash;<Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/circularbutton"
+            android:padding="20dp"
+            android:foreground="@drawable/ic_trending_up_black_24px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.716"
+            app:layout_constraintLeft_toLeftOf="@+id/button"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/button"
+            app:layout_constraintVertical_bias="0.3" />&ndash;&gt;
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/view_trends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/button"
+            android:layout_alignEnd="@+id/button"
+            android:layout_alignRight="@+id/button"
+            android:tint="#FFF"
+            app:backgroundTint="#66bb6a"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.737"
+            app:layout_constraintLeft_toLeftOf="@+id/button"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/button"
+            app:layout_constraintVertical_bias="0.318"
+            app:srcCompat="@drawable/ic_trending_up_black_24dp" />-->
+
+        <include
+            layout="@layout/home_sales_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/homeTopofLayout" />
+    </RelativeLayout>
+
+    <fragment
+        android:id="@+id/frag_nav_drawer"
+        android:name="com.android.test.warrantree_retailer.NavigationDrawerFragment"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:layout="@layout/fragment_navigation_drawer"
+        tools:layout="@layout/fragment_navigation_drawer" />
+</android.support.v4.widget.DrawerLayout>
