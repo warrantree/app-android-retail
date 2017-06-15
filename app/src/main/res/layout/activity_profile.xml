@@ -1,21 +1,32 @@
-<android.support.v4.widget.NestedScrollView
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" >
-
+    android:layout_height="match_parent">
 
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/my_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/my_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:elevation="4dp"
+                android:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+        </android.support.design.widget.AppBarLayout>
 
         <RelativeLayout
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
             <LinearLayout
@@ -30,36 +41,36 @@
                     android:layout_below="@+id/header_cover_image"
                     android:background="@color/colorPrimary"
                     android:elevation="4dp"
-                    android:paddingBottom="24dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingBottom="24dp">
 
                     <ImageButton
                         android:id="@+id/ivProfileImage"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
+                        android:layout_gravity="center"
                         android:background="@drawable/ic_profile"
                         android:elevation="5dp"
                         android:padding="20dp"
                         android:scaleType="centerCrop"
-                        android:layout_gravity="center"
 
                         />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/tvProfileName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:text="Jon Doe"
                             android:textColor="#fff"
                             android:textSize="24sp"
-                            android:textStyle="bold"
-                            android:layout_gravity="center" />
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -81,38 +92,38 @@
                         android:background="#fff"
                         android:clickable="true"
                         android:elevation="4dp"
-                        android:padding="20dp"
-                        >
+                        android:padding="20dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="9"
-                            >
+                            android:weightSum="9">
+
                             <TextView
-                                android:layout_weight="3.5"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
+                                android:layout_weight="3.5"
                                 android:background="#fff"
                                 android:clickable="true"
                                 android:padding="10dp"
-                                android:textSize="15sp"
+                                android:text="Phone No :"
                                 android:textColor="#383838"
-                                android:textStyle="bold"
-                                android:text="Phone No :" />
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tvPhoneNo"
-                                android:layout_weight="5.5"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
+                                android:layout_weight="5.5"
                                 android:background="#fff"
                                 android:clickable="true"
                                 android:padding="10dp"
-                                android:textSize="15sp"
-                                android:text="" />
+                                android:text=""
+                                android:textSize="15sp" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
@@ -127,38 +138,37 @@
                         android:padding="20dp"
 
                         >
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="9"
-                            >
+                            android:weightSum="9">
+
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
+                                android:layout_weight="3.5"
                                 android:background="#fff"
                                 android:clickable="true"
                                 android:padding="10dp"
-                                android:textSize="15sp"
-                                android:textColor="#383838"
-                                android:textStyle="bold"
                                 android:text="Email :"
-                                android:layout_weight="3.5"
-                                />
+                                android:textColor="#383838"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tvEmail"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
+                                android:layout_weight="5.5"
                                 android:background="#fff"
                                 android:clickable="true"
                                 android:padding="10dp"
-                                android:textSize="15sp"
                                 android:text=""
-                                android:layout_weight="5.5"
-                                />
+                                android:textSize="15sp" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
@@ -172,38 +182,37 @@
                         android:padding="20dp"
 
                         >
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="9"
-                            >
+                            android:weightSum="9">
+
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
+                                android:layout_weight="3.5"
                                 android:background="#fff"
                                 android:clickable="true"
                                 android:padding="10dp"
-                                android:textSize="15sp"
-                                android:textColor="#383838"
-                                android:textStyle="bold"
                                 android:text="Address :"
-                                android:layout_weight="3.5"
-                                />
+                                android:textColor="#383838"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tvAddress"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
+                                android:layout_weight="5.5"
                                 android:background="#fff"
                                 android:clickable="true"
                                 android:padding="10dp"
-                                android:textSize="15sp"
                                 android:text=""
-                                android:layout_weight="5.5"
-                                />
+                                android:textSize="15sp" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
@@ -217,38 +226,37 @@
                         android:padding="20dp"
 
                         >
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="9"
-                            >
+                            android:weightSum="9">
+
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
+                                android:layout_weight="3.5"
                                 android:background="#fff"
                                 android:clickable="true"
                                 android:padding="10dp"
-                                android:textSize="15sp"
-                                android:textColor="#383838"
-                                android:textStyle="bold"
                                 android:text="VAT/GST :"
-                                android:layout_weight="3.5"
-                                />
+                                android:textColor="#383838"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tvVAT"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
+                                android:layout_weight="5.5"
                                 android:background="#fff"
                                 android:clickable="true"
                                 android:padding="10dp"
-                                android:textSize="15sp"
                                 android:text=""
-                                android:layout_weight="5.5"
-                                />
+                                android:textSize="15sp" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
@@ -256,16 +264,15 @@
             </LinearLayout>
 
 
-
         </RelativeLayout>
 
         <!--<android.support.design.widget.FloatingActionButton-->
-            <!--android:id="@+id/fabEditProfile"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:src="@drawable/ic_edit"-->
-            <!--android:layout_margin="20dp"-->
-            <!--android:layout_gravity="bottom|end" />-->
+        <!--android:id="@+id/fabEditProfile"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/ic_edit"-->
+        <!--android:layout_margin="20dp"-->
+        <!--android:layout_gravity="bottom|end" />-->
 
     </android.support.design.widget.CoordinatorLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -7,50 +7,76 @@
     tools:context="com.android.test.warrantree_retailer.UserLogin">
 
     <view
-        android:id="@+id/view5"
+        android:id="@+id/central_placeholder"
         class="android.support.v4.widget.Space"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/login_background"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/gradientbox"
-        app:layout_constraintBottom_toTopOf="@+id/view5"
+        android:background="@drawable/bluegradientbox45"
+        android:contentDescription="@string/login_back_description"
+        app:layout_constraintBottom_toTopOf="@+id/central_placeholder"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
+    <ImageView
+        android:id="@+id/login_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_10"
+        android:contentDescription="@string/login_logo_description"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/warrantreesamplelogo"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/margin_20"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="0dp"
-        android:background="#f5ffffff"
+        android:layout_marginEnd="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:background="#f2ffffff"
         android:elevation="4dip"
         android:orientation="vertical"
         android:padding="12dip"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.7">
+        app:layout_constraintTop_toTopOf="@+id/login_background"
+        app:layout_constraintVertical_bias="0.7"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1">
 
         <TextView
             android:id="@+id/user_auth_pageHeader"
@@ -137,10 +163,10 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_marginTop="10dp"
-            android:onClick="resendOTP"
             android:gravity="center"
-            android:textColor="@color/colorPrimary"
+            android:onClick="resendOTP"
             android:text="@string/nootp1"
+            android:textColor="@color/colorPrimary"
             android:visibility="gone" />
 
         <!--        <ImageButton
@@ -218,7 +244,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"
-                android:text="VAT"
+                android:text="@string/vat"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -227,7 +253,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"
-                android:text="GST"
+                android:text="@string/gst"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -236,7 +262,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"
-                android:text="TIN"
+                android:text="@string/tin"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rb_pan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/pan"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </RadioGroup>
@@ -356,4 +391,19 @@
             android:textSize="20sp"
             android:visibility="gone" />
     </LinearLayout>
+
+    <include
+        layout="@layout/login_footer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
 </android.support.constraint.ConstraintLayout>
